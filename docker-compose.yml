@@ -40,3 +40,21 @@ services:
       - kafka
     networks:
       - default
+  smart-ml-preprocessor:
+    build:
+      context: ./smart-ml-preprocessor
+    container_name: smart-ml-preprocessor-container
+    depends_on:
+      - kafka
+    networks:
+      - default
+  smart-ml-forecaster:
+    container_name: smart-ml-forecaster-container
+    build:
+      context: ./smart-ml-forecaster
+    depends_on:
+      - kafka
+    networks:
+      - default
+
+
